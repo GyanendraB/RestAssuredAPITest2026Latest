@@ -88,7 +88,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <parallel>both</parallel>
                     <threadCount>8</threadCount>
                     <includes>
                         <include>**/*Tests.java</include>
