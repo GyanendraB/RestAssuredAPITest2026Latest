@@ -12,10 +12,9 @@ public final class ConfigManager {
     private static final Properties PROPERTIES = new Properties();
 
     static {
-        try {
-            String env = System.getProperty("env", "dev");
-            String path = "/env/" + env + "/config.properties";
-            InputStream inputStream = ConfigManager.class.getResourceAsStream(path);
+        String env = System.getProperty("env", "dev");
+        String path = "/env/" + env + "/config.properties";
+        try (InputStream inputStream = ConfigManager.class.getResourceAsStream(path)) {
             if (inputStream == null) {
                 throw new RuntimeException("Config file not found for env: " + env);
             }
